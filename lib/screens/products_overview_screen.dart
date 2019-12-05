@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app/providers/cart.dart';
 import 'package:shop_app/providers/products.dart';
+import 'package:shop_app/widgets/badge.dart';
 import 'package:shop_app/widgets/products_grid.dart';
 
 enum FilteredOption { Favourites, All }
@@ -11,7 +13,7 @@ class ProductsOverviewScreen extends StatelessWidget {
     final productsContainer = Provider.of<Products>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Renegades Shop'),
+        title: Text('Amazon Shop'),
         actions: <Widget>[
           PopupMenuButton(
             onSelected: (FilteredOption selectedValue) {
@@ -29,7 +31,19 @@ class ProductsOverviewScreen extends StatelessWidget {
                   value: FilteredOption.Favourites),
               PopupMenuItem(child: Text('Show All'), value: FilteredOption.All),
             ],
-          )
+          ),
+          Consumer<Cart>(
+            builder: (_, cart, child) => Badge(
+              child: child,
+              value: cart.itemCount.toString(),
+            ),
+            child: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.shopping_cart,
+              ),
+            ),
+          ),
         ],
       ),
       body: ProductsGrid(),

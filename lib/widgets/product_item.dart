@@ -1,22 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app/providers/cart.dart';
 import 'package:shop_app/providers/product.dart';
 import 'package:shop_app/screens/product_details_screen.dart';
 
 class ProductItem extends StatelessWidget {
-  // final String id;
-  // final String title;
-  // final String imageUrl;
-  // // final double price;
-
-  // ProductItem(
-  //   this.id,
-  //   this.title,
-  //   this.imageUrl,
-  // );
   @override
   Widget build(BuildContext context) {
     final product = Provider.of<Product>(context, listen: false);
+    final cart = Provider.of<Cart>(context, listen: false);
     return ClipRRect(
       borderRadius: BorderRadius.circular(10.0),
       child: InkWell(
@@ -46,7 +38,9 @@ class ProductItem extends StatelessWidget {
             ),
             trailing: IconButton(
               color: Theme.of(context).accentColor,
-              onPressed: () => print('Shopping cart...'),
+              onPressed: () {
+                cart.addItem(product.id, product.price, product.title);
+              },
               icon: Icon(Icons.shopping_basket),
             ),
           ),
