@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'package:shop_app/providers/cart.dart';
 import 'package:shop_app/providers/products.dart';
+import 'package:shop_app/screens/cart_screen.dart';
 import 'package:shop_app/widgets/badge.dart';
 import 'package:shop_app/widgets/products_grid.dart';
 
@@ -22,7 +24,6 @@ class ProductsOverviewScreen extends StatelessWidget {
               } else {
                 productsContainer.showAll();
               }
-              print('Selected $selectedValue');
             },
             icon: Icon(Icons.more_vert),
             itemBuilder: (_) => [
@@ -38,7 +39,9 @@ class ProductsOverviewScreen extends StatelessWidget {
               value: cart.itemCount.toString(),
             ),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(CartScreen.routeName);
+              },
               icon: Icon(
                 Icons.shopping_cart,
               ),
