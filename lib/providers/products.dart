@@ -51,6 +51,7 @@ class Products with ChangeNotifier {
     if (_showFavourites) {
       return _items.where((productItem) => productItem.isFavourite).toList();
     }
+
     return [..._items];
   }
 

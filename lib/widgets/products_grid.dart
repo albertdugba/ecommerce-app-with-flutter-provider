@@ -4,6 +4,9 @@ import 'package:shop_app/providers/products.dart';
 import 'package:shop_app/widgets/product_item.dart';
 
 class ProductsGrid extends StatelessWidget {
+  final bool showFav;
+
+  ProductsGrid(this.showFav);
   @override
   Widget build(BuildContext context) {
     final productsData = Provider.of<Products>(context);
@@ -18,10 +21,11 @@ class ProductsGrid extends StatelessWidget {
         child: ProductItem(),
       ),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
-          childAspectRatio: 3 / 2,
-          crossAxisSpacing: 10.0,
-          mainAxisSpacing: 10.0),
+        crossAxisCount: 1,
+        childAspectRatio: 3 / 2,
+        crossAxisSpacing: 10.0,
+        mainAxisSpacing: 10.0,
+      ),
     );
   }
 }

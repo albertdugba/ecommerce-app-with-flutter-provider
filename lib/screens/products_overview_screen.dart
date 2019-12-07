@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:shop_app/providers/cart.dart';
 import 'package:shop_app/providers/products.dart';
 import 'package:shop_app/screens/cart_screen.dart';
+import 'package:shop_app/widgets/app_drawer.dart';
 import 'package:shop_app/widgets/badge.dart';
 import 'package:shop_app/widgets/products_grid.dart';
 
@@ -13,6 +14,7 @@ class ProductsOverviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productsContainer = Provider.of<Products>(context, listen: false);
+    var _showFavourites = false;
     return Scaffold(
       appBar: AppBar(
         title: Text('Amazon Shop'),
@@ -21,8 +23,10 @@ class ProductsOverviewScreen extends StatelessWidget {
             onSelected: (FilteredOption selectedValue) {
               if (selectedValue == FilteredOption.Favourites) {
                 productsContainer.showFavouritesOnly();
+                _showFavourites = true;
               } else {
                 productsContainer.showAll();
+                _showFavourites = false;
               }
             },
             icon: Icon(Icons.more_vert),
@@ -49,7 +53,8 @@ class ProductsOverviewScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: ProductsGrid(),
+      drawer: AppDrawer(),
+      body: ProductsGrid(_showFavourites),
     );
   }
 }
