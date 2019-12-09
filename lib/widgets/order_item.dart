@@ -1,7 +1,7 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import '../providers/orders.dart' as ord;
 
 class OrderItem extends StatefulWidget {
@@ -36,7 +36,7 @@ class _OrderItemState extends State<OrderItem> {
           ),
           if (_expanded)
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 4.0),
+              padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 14.0),
               height: min(widget.orderItem.products.length * 20.0 + 10, 100),
               child: ListView(
                 children: widget.orderItem.products
