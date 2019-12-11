@@ -27,7 +27,7 @@ class ProductDetailsScreen extends StatelessWidget {
             ),
             SizedBox(height: 10.0),
             Text(
-              '\$${loadedProduct.price}',
+              '\GHC${loadedProduct.price}',
               style: TextStyle(color: Colors.grey, fontSize: 20.0),
             ),
             SizedBox(height: 10.0),

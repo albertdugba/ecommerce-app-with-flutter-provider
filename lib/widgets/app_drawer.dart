@@ -10,7 +10,7 @@ class AppDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           AppBar(
-            title: Text('Ghana Amazon'),
+            title: Text('Renegades Shop'),
             automaticallyImplyLeading: false,
           ),
           Divider(),

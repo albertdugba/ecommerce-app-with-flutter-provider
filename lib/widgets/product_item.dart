@@ -23,7 +23,7 @@ class ProductItem extends StatelessWidget {
           footer: GridTileBar(
             leading: Consumer<Product>(
               builder: (context, product, _) => IconButton(
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).primaryColor,
                 onPressed: () {
                   product.toggleFavouriteStatus();
                 },
@@ -59,7 +59,7 @@ class ProductItem extends StatelessWidget {
                   ),
                 );
               },
-              icon: Icon(Icons.shopping_basket),
+              icon: Icon(Icons.add_shopping_cart),
             ),
           ),
         ),

@@ -17,7 +17,7 @@ class ProductsOverviewScreen extends StatelessWidget {
     var _showFavourites = false;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Amazon Shop'),
+        title: Text('Renegades Shop'),
         actions: <Widget>[
           PopupMenuButton(
             onSelected: (FilteredOption selectedValue) {
