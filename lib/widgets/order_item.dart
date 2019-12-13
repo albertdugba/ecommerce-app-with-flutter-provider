@@ -22,7 +22,7 @@ class _OrderItemState extends State<OrderItem> {
       child: Column(
         children: <Widget>[
           ListTile(
-            title: Text('\$${widget.orderItem.amount.toStringAsFixed(2)}'),
+            title: Text('\GHC${widget.orderItem.amount.toStringAsFixed(2)}'),
             subtitle: Text(DateFormat('ddd/MM/yyyy hh:mm')
                 .format(widget.orderItem.dateTime)),
             trailing: IconButton(
@@ -37,7 +37,9 @@ class _OrderItemState extends State<OrderItem> {
           if (_expanded)
             Container(
               padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 14.0),
+              // height: 300.0,
               height: min(widget.orderItem.products.length * 20.0 + 10, 100),
+
               child: ListView(
                 children: widget.orderItem.products
                     .map((prod) => Row(
@@ -51,7 +53,7 @@ class _OrderItemState extends State<OrderItem> {
                               ),
                             ),
                             Text(
-                              '${prod.quantity} x \$${prod.price}',
+                              '${prod.quantity} x \GHC${prod.price}',
                               style: TextStyle(
                                 fontSize: 18.0,
                                 color: Colors.grey,
