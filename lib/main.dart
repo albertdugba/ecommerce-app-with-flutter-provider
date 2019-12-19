@@ -11,9 +11,9 @@ import './screens/orders_screen.dart';
 import './screens/user_products_screen.dart';
 import './screens/edit_product_screen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(Application());
 
-class MyApp extends StatelessWidget {
+class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'MyShop',
+          title: 'RenegadesMart',
           theme: ThemeData(
             primarySwatch: Colors.cyan,
             accentColor: Colors.white,
